@@ -1,0 +1,31 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "adminUsername": {
+      "value": "devops-lab"
+    },
+    "adminPassword": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/337fc62f-b722-4e0c-b45a-ed21c102204d/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/myVault-stony"
+        },
+        "secretName": "admin-password"
+      }
+    },
+    "adminSshKey": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/337fc62f-b722-4e0c-b45a-ed21c102204d/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/myVault-stony"
+        },
+        "secretName": "admin-key"
+      }
+    },
+    "dnsLabelPrefix": {
+      "value": "devops-lab-stony"
+    },
+    "configAppUri": {
+      "value": "https://raw.githubusercontent.com/pasuinthesky/devops-lab-glen/master/setup-docker-compose.sh"
+    }
+  }
+}
